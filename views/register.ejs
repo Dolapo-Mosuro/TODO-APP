@@ -1,0 +1,41 @@
+<%- include('./partials/header') %>
+<main>
+	<div class="container">
+		<h1>Welcome to Your To-Do App</h1>
+		<p>Organize your tasks efficiently.</p>
+		<form action="/users/register" method="POST">
+			<div class="form-group">
+				<label for="emailInput">Email address</label>
+				<input
+					type="email"
+					class="form-control"
+					id="emailInput"
+					placeholder="Email"
+					name="email"
+				/>
+			</div>
+			<div class="form-group">
+				<label for="usernameInput">Username</label>
+				<input
+					type="text"
+					class="form-control"
+					id="usernameInput"
+					placeholder="Username"
+					name="username"
+				/>
+			</div>
+			<div class="form-group">
+				<label for="passwordInput">Password</label>
+				<input
+					type="password"
+					class="form-control"
+					id="passwordInput"
+					placeholder="Password"
+					name="password"
+				/>
+			</div>
+			<button type="submit" class="btn btn-custom">Submit</button>
+		</form>
+	</div>
+</main>
+<%- include('./partials/footer') %>
