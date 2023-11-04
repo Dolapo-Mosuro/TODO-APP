@@ -18,8 +18,6 @@ const userModel = require("./models/users");
 const secretKey = process.env.JWT_SECRET;
 const PORT = process.env.PORT; // You were missing the const keyword
 
-//set template engine
-
 // View engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -28,6 +26,10 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
 // Use your routes
+
+app.use("/", taskRoutes);
+
+app.use(require("./routes/userRoutes"));
 app.use("/users", userRoutes);
 app.use("/tasks", taskRoutes);
 
@@ -41,16 +43,18 @@ app.use((err, req, res, next) => {
 // Static files setup
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use("/", taskRoutes);
+
 // Use Passport and its session configuration
-app.use(
-	expressSession({
-		secret: secretKey,
-		resave: false,
-		saveUninitialized: false,
-	})
-);
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(
+// 	expressSession({
+// 		secret: secretKey,
+// 		resave: false,
+// 		saveUninitialized: false,
+// 	})
+// );
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // Start the server
 connectDb()

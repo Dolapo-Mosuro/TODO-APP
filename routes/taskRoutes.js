@@ -2,13 +2,18 @@ const express = require("express");
 const router = express.Router();
 const taskController = require("../controllers/taskController");
 
+// // Define the root path route
+// router.get("/", (req, res) => {
+// 	res.render;
+// 	// You can render a welcome page or redirect to your home page
+// 	res.redirect("/index");
+// });
 // Define the root path route
-router.get("/", (req, res) => {
-	// You can render a welcome page or redirect to your home page
-	res.redirect("/index");
-});
+
 // Route for all tasks
-router.get("/index", taskController.index);
+router.get("/tasks", taskController.renderGetTasks);
+router.get("/tasks", taskController.getTasks);
+// router.get("/add/todo", taskController.index);
 // Route for creating a new task
 router.get("/tasks/create", taskController.renderCreateTask);
 router.post("/tasks/create", taskController.createTask);

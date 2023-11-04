@@ -3,12 +3,22 @@ const router = express.Router();
 const taskModel = require("../models/tasks");
 
 // Home page
-const index = async (req, res) => {
+
+const renderGetTasks = async (req, res, next) => {
+	try {
+		const taskId = req.params.taskId;
+		const task = await Task.findById(taskId);
+		res.render("task-detail", { task });
+	} catch (err) {
+		console.log(err);
+	}
+};
+const getTasks = async (req, res) => {
 	try {
 		// Retrieve tasks from the database, e.g., using Task.find()
 		const tasks = await taskModel.find();
 
-		// Render the 'home.ejs' template with the tasks data
+		// Render the 'index.ejs' template with the tasks data
 		res.render("index", { tasks });
 	} catch (error) {
 		console.error(error);
@@ -122,7 +132,8 @@ const deleteTask = async (req, res) => {
 };
 
 const taskController = {
-	index,
+	renderGetTasks,
+	getTasks,
 	renderCreateTask,
 	renderEditTask,
 	createTask,

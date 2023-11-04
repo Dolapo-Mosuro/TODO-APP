@@ -1,0 +1,32 @@
+<%- include('./partials/header') %>
+<div class="container mt-25 col-md-12">
+	<h1>Let's Get Busy</h1>
+	<p>Welcome to your daily task management App</p>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="container">
+				<form action="/add/todo" class="d-flex">
+					<input
+						type="text"
+						name="todo"
+						class="form-control"
+						placeholder="Enter Task"
+					/>
+					<input
+						type="submit"
+						value="Add Task"
+						class="btn btn-md btn-primary mx-2"
+					/>
+				</form>
+				<ul class="list-group my-5">
+					<li class="list-group-item">An item</li>
+					<li class="list-group-item">A second item</li>
+					<li class="list-group-item">A third item</li>
+					<li class="list-group-item">A fourth item</li>
+					<li class="list-group-item">And a fifth one</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<%- include('./partials/footer') %>
+</div>

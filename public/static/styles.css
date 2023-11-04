@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-	background-color: #fff;
+	background-color: #f5ebde;
 	padding: 20px;
 	margin-top: 20px;
 	border-radius: 5px;
@@ -18,8 +18,11 @@ body {
 	justify-content: space-between;
 	align-items: center;
 }
-.btn-custom {
-	background-color: #13013b;
+.btn-primary .btn-primary {
+	background-color: #0961ae;
 	color: #ffff;
-	border: none;
+}
+btn btn-custom {
+	background-color: #d011ad;
+	color: #ffff;
 }
